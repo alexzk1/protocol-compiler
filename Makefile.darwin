@@ -1,0 +1,11 @@
+#
+# Makefile.darwin
+#
+
+SSL_OBJ = osx_md5.o
+CC = clang++
+CXX = clang++
+CXXFLAGS = -DDARWIN
+LDFLAGS = ''
+
+include Makefile

@@ -1,0 +1,70 @@
+Some TODO ideas and future directions:
+
+- Implement toString() methods in Java generator.
+
+- Implement dictionary types.
+
+- C++ generator:
+
+  Create a Receiver hierarchy so the implementing class can pick and
+  choose which parts of the protocol it wants to support.
+
+- Add syntax to group messages together which form a logical, working
+  subset of the protocol. We would also need a keyword to mark a
+  message as "mandatory".
+
+- Add union types (inspired by functional languages.)
+
+    type name = Const1 [arg [, arg] ...]
+              | Const2 ...
+
+    If all constructors are constant, then this could become an enum
+    (in C++/Java/ObjC.) For OOP languages, non-const union types could
+    be implemented as a union or as a simple class hierarchy. This
+    could be a preference specified on the command line.
+
+- Add constraints to the grammar.
+
+    Request, reply and struct definitions can have constraint fields
+    of the form:
+
+        @constraint constr-expr [, constr-expr] ... ;
+
+    Where constr-expr is a constraint expression which must evaluate
+    to true or false. All constraint expressions must evaluate to true
+    for a message/struct to be considered valid. Some possible
+    expressions could be:
+
+	field			Will be the run-time value of the
+				field. If the field is an array, its
+				elements' constraints can be referred
+				to by adding '[]' after the field
+				name.
+
+        SIZE(field)		Returns a numeric value representing
+				the size of the field field (For
+				arrays, it's the dimension. For
+				strings and binaries, it's the number
+				of characters or bytes, respectively.)
+
+	=, /=, >, >=, <, <=	Boolean comparisons. Both sides of the
+				operator must be the same type.
+
+	+, -, *, /		Operators which work with numeric
+				arguments.
+
+	field IN (V1, V2, ..., Vn)
+				The field value must be one of the
+				values specified in the set. The value
+				type must match the type of the field.
+
+    Switching to this means we lose 'int16', 'int32', and 'int64' as
+    built-in types. Instead we only support 'int'. We can, however,
+    use these old names as a sort of macro. For instance:
+
+	int16 value;
+
+    can expand to:
+
+    	int value;
+	@constraint value <= 32768, value >= -32768;

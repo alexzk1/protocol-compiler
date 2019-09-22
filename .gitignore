@@ -1,0 +1,13 @@
+js_src.cpp
+depends.opt
+options.opt
+xfer.dat
+history.txt
+*o
+pc
+*~
+demo_protocol.*
+demo.h
+demo.m
+demo.cpp
+demo.java

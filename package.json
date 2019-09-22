@@ -1,0 +1,43 @@
+{
+  "name": "@fnal/protocol-compiler",
+  "version": "1.3.8",
+  "description": "Command line tool to encode/decode protocol messages.",
+  "main": "dist/dpm_protocol.js",
+  "scripts": {
+    "install": "npm run build",
+    "build": "node build.js",
+    "clean": "make clean",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://p-protocol-compiler@cdcvs.fnal.gov/cvs/projects/protocol-compiler"
+  },
+  "publishConfig": {
+    "registry": "http://adrfads.fnal.gov:4873"
+  },
+  "keywords": [
+    "ACNET",
+    "protocol",
+    "compiler"
+  ],
+  "author": "Beau Harrison <beau@fnal.gov>",
+  "contributors": [
+    {
+      "name": "Beau Harrison",
+      "email": "beau@fnal.gov"
+    },
+    {
+      "name": "Rich Neswold",
+      "email": "neswold@fnal.gov"
+    },
+    {
+      "name": "Charlie King",
+      "email": "kingc@fnal.gov"
+    }
+  ],
+  "license": "UNLICENSED",
+  "bin": {
+    "pc": "./pc.js"
+  }
+}
