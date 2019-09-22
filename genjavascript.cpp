@@ -368,6 +368,7 @@ static void dumpStructUnmarshaller(Protocol const& p, Struct const& s,
 		iname = "glb" + sname;
 		os << "\nconst " << iname << " = new " << sname << "();\n";
 	    }
+        // fall through    
 	 case Struct::asStruct:
 	    {
 		std::string const sname = structName(p, s);

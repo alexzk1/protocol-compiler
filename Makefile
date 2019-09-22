@@ -8,7 +8,7 @@ endif
 
 LDFLAGS ?=  -L/usr/pkg/lib -L/usr/local/ssl/lib -lssl -lcrypto
 
-CXXFLAGS += ${DOPTS} -W -Wall -Werror -I /usr/pkg/include -I/usr/local/ssl/include
+CXXFLAGS += ${DOPTS} -W -Wall -Werror -I/usr/pkg/include -I/usr/local/ssl/include
 OBJS = main.o parser.o lexer.o gencpp.o genjava.o generlang.o genobjc.o genpython.o genocaml.o js_src.o genjavascript.o gengwtjava.o genrust.o ${SSL_OBJ} hash.o
 
 ERLC ?= erlc

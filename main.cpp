@@ -264,7 +264,7 @@ int main(int argc, char** argv)
 		 case 'h':
 		 case '?':
 		    usage();
-
+            // fall through    
 		 case 'a':
 		    allStructs = true;
 		    break;
